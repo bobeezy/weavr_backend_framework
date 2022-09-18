@@ -1,5 +1,10 @@
 package properties;
 
+/**
+ * @author lionel mangoua
+ * Date: 18/09/22
+ */
+
 public class BackendProperties {
 
     public static String BaseURL() {
@@ -63,12 +68,12 @@ public class BackendProperties {
         return "data.body";
     }
 
-    public static String ValidAccessToken() {
-        return "0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c";
+    public static String validAccessToken() {
+        return "Bearer 0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c";
     }
 
-    public static String InvalidAccessToken() {
-        return "token";
+    public static String invalidAccessToken() {
+        return "InvalidToken";
     }
 
     //URI

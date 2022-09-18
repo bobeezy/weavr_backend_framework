@@ -8,8 +8,11 @@ package services;
 import io.restassured.response.Response;
 import models.CreateCommentModel;
 import models.CreatePostModel;
+import models.CreateTodosModel;
 import models.CreateUserModel;
 import properties.BackendProperties;
+
+import static services.BaseService.todosId;
 
 public class GoRestService extends BaseService {
 
@@ -59,6 +62,22 @@ public class GoRestService extends BaseService {
         return response;
     }
 
+    public static Response createTodos(final CreateTodosModel createTodosModel, int userId) {
+        Response response = defaultRequestSpecification()
+                .body(createTodosModel)
+                .when()
+                .post(BackendProperties.createTodosURI(userId))
+                .then().extract().response();
+        logger.info("Response body: " + response.body().prettyPrint());
+        todosId = response.body().path(BackendProperties.todosIdPath());
+        todosUserId = response.body().path(BackendProperties.todosUserIdPath());
+        todosTitle = response.body().path(BackendProperties.todosTitlePath());
+        todosDueOn = response.body().path(BackendProperties.todosDueOnPath());
+        todosStatus = response.body().path(BackendProperties.todosStatusPath());
+        logger.info("todosId: " + todosId);
+        return response;
+    }
+
     public static Response updateUser(final CreateUserModel createUserModel, int userId) {
         Response response = defaultRequestSpecification()
                 .body(createUserModel)
@@ -68,24 +87,6 @@ public class GoRestService extends BaseService {
         logger.info("Response body: " + response.body().prettyPrint());
         userId = response.body().path(BackendProperties.userIdPath());
         logger.info("userId: " + userId);
-        return response;
-    }
-
-    public static Response getAllUsers() {
-        Response response = defaultRequestSpecification()
-                .when()
-                .get(BackendProperties.getAllUsersURI())
-                .then().extract().response();
-        logger.info("Response body: " + response.body().prettyPrint());
-        return response;
-    }
-
-    public static Response getAllPosts() {
-        Response response = defaultRequestSpecification()
-                .when()
-                .get(BackendProperties.getAllPostsURI())
-                .then().extract().response();
-        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -107,6 +108,42 @@ public class GoRestService extends BaseService {
         return response;
     }
 
+    public static Response getCommentById(int postId) {
+        Response response = defaultRequestSpecification()
+                .when()
+                .get(BackendProperties.getCommentByPostIdURI(postId))
+                .then().extract().response();
+        logger.info("Response body: " + response.body().prettyPrint());
+        return response;
+    }
+
+    public static Response getTodosById(int user_Id) {
+        Response response = defaultRequestSpecification()
+                .when()
+                .get(BackendProperties.getTodosByIdURI(user_Id))
+                .then().extract().response();
+        logger.info("Response body: " + response.body().prettyPrint());
+        return response;
+    }
+
+    public static Response getAllUsers() {
+        Response response = defaultRequestSpecification()
+                .when()
+                .get(BackendProperties.getAllUsersURI())
+                .then().extract().response();
+        logger.info("Response body: " + response.body().prettyPrint());
+        return response;
+    }
+
+    public static Response getAllPosts() {
+        Response response = defaultRequestSpecification()
+                .when()
+                .get(BackendProperties.getAllPostsURI())
+                .then().extract().response();
+        logger.info("Response body: " + response.body().prettyPrint());
+        return response;
+    }
+
     public static Response getAllComments() {
         Response response = defaultRequestSpecification()
                 .when()
@@ -116,10 +153,10 @@ public class GoRestService extends BaseService {
         return response;
     }
 
-    public static Response getCommentById(int postId) {
+    public static Response getAllTodos() {
         Response response = defaultRequestSpecification()
                 .when()
-                .get(BackendProperties.getCommentByPostIdURI(postId))
+                .get(BackendProperties.getAllTodosURI())
                 .then().extract().response();
         logger.info("Response body: " + response.body().prettyPrint());
         return response;

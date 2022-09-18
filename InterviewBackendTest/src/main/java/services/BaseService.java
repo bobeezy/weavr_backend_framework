@@ -35,6 +35,12 @@ public class BaseService {
     public static String commentName = "";
     public static String commentEmail = "";
     public static String commentBody = "";
+    //todos
+    public static int todosId = 0;
+    public static int todosUserId = 0;
+    public static String todosTitle = "";
+    public static String todosDueOn = "";
+    public static String todosStatus = "";
 
     protected static RequestSpecification defaultRequestSpecification(){
 

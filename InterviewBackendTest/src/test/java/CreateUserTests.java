@@ -6,6 +6,7 @@
 import io.qameta.allure.Description;
 import models.CreateCommentModel;
 import models.CreatePostModel;
+import models.CreateTodosModel;
 import models.CreateUserModel;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -100,6 +101,23 @@ public class CreateUserTests {
 
     @Test
     @Order(5)
+    @Description("* Create Todos")
+    public void Users_CreateTodos_Success(){
+
+        final CreateTodosModel createTodosModel = new CreateTodosModel("Today Todos", "2023-09-28T00:00:00.000+05:30", "pending");
+        GoRestService.createTodos(createTodosModel, userId)
+                .then()
+                .statusCode(SC_CREATED)
+                .body(BackendProperties.todosIdPath(), notNullValue())
+                .body(BackendProperties.todosUserIdPath(), equalTo(userId))
+                .body(BackendProperties.todosTitlePath(), equalTo(createTodosModel.getTitle()))
+                .body(BackendProperties.todosStatusPath(), equalTo(createTodosModel.getStatus()));
+
+        logger.info("Successfully validated Users_CreateTodos_Success \n");
+    }
+
+    @Test
+    @Order(6)
     @Description("* Get User By Id")
     public void Users_GetUserById_Success(){
 
@@ -112,7 +130,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     @Description("* Get Post By Id")
     public void Users_GetPostById_Success(){
 
@@ -125,7 +143,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     @Description("* Get Comment By Id")
     public void Users_GetCommentById_Success(){
 
@@ -138,7 +156,20 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
+    @Description("* Get Todos By Id")
+    public void Users_GetTodosById_Success(){
+
+        GoRestService.getTodosById(userId)
+                .then()
+                .statusCode(SC_OK)
+                .body(BackendProperties.userIdPath(), notNullValue());
+
+        logger.info("Successfully validated Users_GetTodosById_Success \n");
+    }
+
+    @Test
+    @Order(10)
     @Description("* Delete User By Id")
     public void Users_DeleteUserById_Success(){
 
@@ -150,7 +181,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(9)
+    @Order(11)
     @Description("* Get All Users")
     public void Users_GetAllUsers_Success(){
 
@@ -163,7 +194,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(10)
+    @Order(12)
     @Description("* Get All Posts")
     public void Users_GetAllPosts_Success(){
 
@@ -176,7 +207,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(11)
+    @Order(13)
     @Description("* Get All Comments")
     public void Users_GetAllComments_Success(){
 
@@ -186,5 +217,18 @@ public class CreateUserTests {
                 .body(BackendProperties.userIdPath(), notNullValue());
 
         logger.info("Successfully validated Users_GetAllComments_Success \n");
+    }
+
+    @Test
+    @Order(14)
+    @Description("* Get All To Do")
+    public void Users_GetAllTodos_Success(){
+
+        GoRestService.getAllTodos()
+                .then()
+                .statusCode(SC_OK)
+                .body(BackendProperties.userIdPath(), notNullValue());
+
+        logger.info("Successfully validated Users_GetAllTodos_Success \n");
     }
 }

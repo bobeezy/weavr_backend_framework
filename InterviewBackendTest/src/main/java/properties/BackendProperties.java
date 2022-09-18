@@ -68,6 +68,26 @@ public class BackendProperties {
         return "data.body";
     }
 
+    public static String todosIdPath() {
+        return "data.id";
+    }
+
+    public static String todosUserIdPath() {
+        return "data.user_id";
+    }
+
+    public static String todosTitlePath() {
+        return "data.title";
+    }
+
+    public static String todosDueOnPath() {
+        return "data.due_on";
+    }
+
+    public static String todosStatusPath() {
+        return "data.status";
+    }
+
     public static String validAccessToken() {
         return "Bearer 0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c";
     }
@@ -89,6 +109,10 @@ public class BackendProperties {
         return "/public/v1/posts/" + userId + "/comments";
     }
 
+    public static String createTodosURI(int userId) {
+        return "/public/v1/users/" + userId + "/todos";
+    }
+
     public static String getAllUsersURI() {
         return "/public/v1/users";
     }
@@ -99,6 +123,10 @@ public class BackendProperties {
 
     public static String getAllCommentsURI() {
         return "/public/v1/comments";
+    }
+
+    public static String getAllTodosURI() {
+        return "/public/v1/todos";
     }
 
     public static String getUserByIdURI(int userId) {
@@ -113,7 +141,7 @@ public class BackendProperties {
         return "/public/v1/posts/" + postId + "/comments";
     }
 
-    public static String userTodosURI(String userId) {
+    public static String getTodosByIdURI(int userId) {
         return "/public/v1/users/" + userId + "/todos";
     }
 }

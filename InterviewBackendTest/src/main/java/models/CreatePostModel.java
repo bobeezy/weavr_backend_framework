@@ -1,5 +1,10 @@
 package models;
 
+/**
+ * @author lionel mangoua
+ * Date: 18/09/22
+ */
+
 public class CreatePostModel {
 
     private String title;

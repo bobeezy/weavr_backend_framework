@@ -1,11 +1,15 @@
 package services;
 
+/**
+ * @author lionel mangoua
+ * Date: 18/09/22
+ */
+
 import io.restassured.response.Response;
 import models.CreateCommentModel;
 import models.CreatePostModel;
 import models.CreateUserModel;
 import properties.BackendProperties;
-
 
 public class GoRestService extends BaseService {
 

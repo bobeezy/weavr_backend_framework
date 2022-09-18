@@ -15,13 +15,13 @@ public class GoRestService extends BaseService {
                 .when()
                 .post(BackendProperties.createUserURI())
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         userId = response.body().path(BackendProperties.userIdPath());
         userName = response.body().path(BackendProperties.userNamePath());
         userEmail = response.body().path(BackendProperties.userEmailPath());
         userGender = response.body().path(BackendProperties.userGenderPath());
         userStatus = response.body().path(BackendProperties.userStatusPath());
-        System.out.println("userId: " + userId); //TODO add logger
+        logger.info("userId: " + userId);
         return response;
     }
 
@@ -31,12 +31,14 @@ public class GoRestService extends BaseService {
                 .when()
                 .post(BackendProperties.userPostURI(userId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        System.out.println(); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         postId = response.body().path(BackendProperties.postIdPath());
         postUserId = response.body().path(BackendProperties.postUserIdPath());
         postTitle = response.body().path(BackendProperties.postTitlePath());
         postBody = response.body().path(BackendProperties.postBodyPath());
-        System.out.println("postId: " + postId); //TODO add logger
+//        System.out.println(); //TODO add logger
+        logger.info("postId: " + postId);
         return response;
     }
 
@@ -46,12 +48,14 @@ public class GoRestService extends BaseService {
                 .when()
                 .post(BackendProperties.userCommentURI(userId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         commentId = response.body().path(BackendProperties.commentIdPath());
         commentName = response.body().path(BackendProperties.commentNamePath());
         commentEmail = response.body().path(BackendProperties.commentEmailPath());
         commentBody = response.body().path(BackendProperties.commentBodyPath());
-        System.out.println("commentId: " + commentId); //TODO add logger
+//        System.out.println("commentId: " + commentId); //TODO add logger
+        logger.info("commentId: " + commentId);
         return response;
     }
 
@@ -61,9 +65,11 @@ public class GoRestService extends BaseService {
                 .when()
                 .put(BackendProperties.userByURI(userId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         userId = response.body().path(BackendProperties.userIdPath());
-        System.out.println("userId: " + userId); //TODO add logger
+//        System.out.println("userId: " + userId); //TODO add logger
+        logger.info("userId: " + userId);
         return response;
     }
 
@@ -72,7 +78,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .get(BackendProperties.getAllUsersURI())
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -81,7 +88,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .get(BackendProperties.getAllPostsURI())
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -90,7 +98,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .get(BackendProperties.userByURI(userId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -99,7 +108,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .get(BackendProperties.postByURI(postId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -108,7 +118,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .get(BackendProperties.getAllCommentsURI())
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -117,7 +128,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .get(BackendProperties.commentByPostIdURI(postId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 
@@ -126,7 +138,8 @@ public class GoRestService extends BaseService {
                 .when()
                 .delete(BackendProperties.userByURI(userId))
                 .then().extract().response();
-        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+//        System.out.println("Response body: " + response.body().prettyPrint()); //TODO add logger
+        logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
 

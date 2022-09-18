@@ -8,7 +8,12 @@ import properties.BackendProperties;
 
 import static io.restassured.RestAssured.given;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class BaseService {
+
+    public static final Logger logger = LogManager.getLogger(BaseService.class);
 
     public static int userId = 0;
     public static String userName = "";
@@ -35,6 +40,8 @@ public class BaseService {
     } //"tqgiwz-unv8OWaZXfyNqSzEqIp8nYBUi3Pgo"  //0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c
 
     protected static RequestSpecification restAssured() {
+
+        logger.info("We've just greeted the user!");
         RestAssured.baseURI = BackendProperties.BaseURL();
         RestAssured.useRelaxedHTTPSValidation();
         RestAssured.urlEncodingEnabled = false;

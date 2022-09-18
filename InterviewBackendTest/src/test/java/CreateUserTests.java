@@ -230,7 +230,7 @@ public class CreateUserTests {
                 .statusCode(SC_OK)
                 .body(BackendProperties.userIdPath(), notNullValue());
 
-        logger.info("Successfully validated Users_GetAllTodoss \n");
+        logger.info("Successfully validated Users_GetAllTodos \n");
     }
 
     @Test
@@ -243,7 +243,7 @@ public class CreateUserTests {
                 .statusCode(SC_OK)
                 .body(BackendProperties.userIdPath(), notNullValue());
 
-        logger.info("Successfully validated Users_GetTodosById_Success \n");
+        logger.info("Successfully validated Users_GetTodosById \n");
     }
 
     @Test

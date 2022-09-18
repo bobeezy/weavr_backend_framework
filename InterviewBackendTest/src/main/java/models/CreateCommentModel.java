@@ -7,7 +7,6 @@ package models;
 
 public class CreateCommentModel {
 
-    private int user_id;
     private int post_id;
     private String name;
     private String email;

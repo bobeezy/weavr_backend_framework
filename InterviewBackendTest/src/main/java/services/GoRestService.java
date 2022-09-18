@@ -35,7 +35,6 @@ public class GoRestService extends BaseService {
                 .when()
                 .post(BackendProperties.createPostURI(userId))
                 .then().extract().response();
-        System.out.println(); //TODO add logger
         logger.info("Response body: " + response.body().prettyPrint());
         postId = response.body().path(BackendProperties.postIdPath());
         postUserId = response.body().path(BackendProperties.postUserIdPath());
@@ -134,30 +133,4 @@ public class GoRestService extends BaseService {
         logger.info("Response body: " + response.body().prettyPrint());
         return response;
     }
-
-//    public static Response GetMethod(String baseURL,String URI,String accessToken)
-//    {
-//        response = given().
-//                baseUri(baseURL).
-//                auth().oauth2(accessToken).
-//                when().get(URI)
-//                .then()
-//                .extract().response();
-//        return response;
-//    }
-
-//    public static Response createUser(final CreateUserModel createUserModel) {
-//        return defaultRequestSpecification()
-//                .body(createUserModel)
-//                .when()
-//                .post(BackendProperties.CreateUserURI())
-//                .then().extract().response();
-//    }
-
-//    public static Response createUser(final CreateUserModel createUserModel) {
-//        return defaultRequestSpecification()
-//                .body(createUserModel)
-//                .when()
-//                .post("/public/v1/users");
-//    }
 }

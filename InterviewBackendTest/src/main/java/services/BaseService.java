@@ -41,11 +41,7 @@ public class BaseService {
         return restAssured()
                 .header("Content-type", "application/json")
                 .header("Authorization", BackendProperties.validAccessToken());
-//                .header("Authorization", "Bearer 0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c"); //TODO works
-//                .header("Authorization", "0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c"); //TODO 401
-//                .header("Authorization", "tqgiwz-unv8OWaZXfyNqSzEqIp8nYBUi3Pgo"); //TODO 401
-//                .header("Authorization", "Bearer fa80cece96297cd1ee8f66607d62a94723a4ddd79769451e5a6ef9efba66ca61"); //TODO 422
-    } //"tqgiwz-unv8OWaZXfyNqSzEqIp8nYBUi3Pgo"  //0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c
+    }
 
     protected static RequestSpecification restAssured() {
 

@@ -3,8 +3,7 @@
  * Date: 18/09/22
  */
 
-//import io.qameta.allure.Description;
-//import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import models.CreateCommentModel;
 import models.CreatePostModel;
 import models.CreateUserModel;
@@ -31,7 +30,7 @@ public class CreateUserTests {
 
     @Test
     @Order(1)
-//    @Description("* Create User")
+    @Description("* Create User")
     public void Users_CreateUser_Success(){
 
         GoRestService.createUser(createUserModel)
@@ -48,7 +47,7 @@ public class CreateUserTests {
 
     @Test
     @Order(2)
-//    @Description("* Update User")
+    @Description("* Update User")
     public void Users_UpdateUser_Success(){
 
         final CreateUserModel updateUserModel = new CreateUserModel(userName, "female", userEmail, userStatus); //update Gender
@@ -66,7 +65,7 @@ public class CreateUserTests {
 
     @Test
     @Order(3)
-//    @Description("* Create Post")
+    @Description("* Create Post")
     public void Users_CreatePost_Success(){
 
         final CreatePostModel createPostModel = new CreatePostModel("LIONEL TEST TITLE", "This is the body of the post.");
@@ -83,7 +82,7 @@ public class CreateUserTests {
 
     @Test
     @Order(4)
-//    @Description("* Create Comment")
+    @Description("* Create Comment")
     public void Users_CreateComment_Success(){
 
         final CreateCommentModel createCommentModel = new CreateCommentModel(postId, "Lionel", "testUser@gmail.com", "This is the body.");
@@ -101,7 +100,7 @@ public class CreateUserTests {
 
     @Test
     @Order(5)
-//    @Description("* Get User By Id")
+    @Description("* Get User By Id")
     public void Users_GetUserById_Success(){
 
         GoRestService.getUserById(userId)
@@ -114,7 +113,7 @@ public class CreateUserTests {
 
     @Test
     @Order(6)
-//    @Description("* Get Post By Id")
+    @Description("* Get Post By Id")
     public void Users_GetPostById_Success(){
 
         GoRestService.getPostById(userId)
@@ -127,7 +126,7 @@ public class CreateUserTests {
 
     @Test
     @Order(7)
-//    @Description("* Get Comment By Id")
+    @Description("* Get Comment By Id")
     public void Users_GetCommentById_Success(){
 
         GoRestService.getCommentById(postId)
@@ -140,7 +139,7 @@ public class CreateUserTests {
 
     @Test
     @Order(8)
-//    @Description("* Delete User By Id")
+    @Description("* Delete User By Id")
     public void Users_DeleteUserById_Success(){
 
         GoRestService.deleteUserById(userId)
@@ -152,7 +151,7 @@ public class CreateUserTests {
 
     @Test
     @Order(9)
-//    @Description("* Get All Users")
+    @Description("* Get All Users")
     public void Users_GetAllUsers_Success(){
 
         GoRestService.getAllUsers()
@@ -165,7 +164,7 @@ public class CreateUserTests {
 
     @Test
     @Order(10)
-//    @Description("* Get All Posts")
+    @Description("* Get All Posts")
     public void Users_GetAllPosts_Success(){
 
         GoRestService.getAllPosts()
@@ -178,7 +177,7 @@ public class CreateUserTests {
 
     @Test
     @Order(11)
-//    @Description("* Get All Comments")
+    @Description("* Get All Comments")
     public void Users_GetAllComments_Success(){
 
         GoRestService.getAllComments()

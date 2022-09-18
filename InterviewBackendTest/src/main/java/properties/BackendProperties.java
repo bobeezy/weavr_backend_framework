@@ -113,14 +113,6 @@ public class BackendProperties {
         return "/public/v1/posts/" + postId + "/comments";
     }
 
-    public static String commentByURI(int postId) {
-        return "/public/v1/users/" + postId + "/posts";
-    }
-
-    public static String userCommentURI(String userId) {
-        return "/public/v1/users/" + userId + "/comments";
-    }
-
     public static String userTodosURI(String userId) {
         return "/public/v1/users/" + userId + "/todos";
     }

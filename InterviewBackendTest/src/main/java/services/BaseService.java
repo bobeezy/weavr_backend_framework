@@ -10,6 +10,21 @@ import static io.restassured.RestAssured.given;
 
 public class BaseService {
 
+    public static int userId = 0;
+    public static String userName = "";
+    public static String userEmail = "";
+    public static String userGender = "";
+    public static String userStatus = "";
+    public static int postId = 0;
+    public static int postUserId = 0;
+    public static String postTitle = "";
+    public static String postBody = "";
+
+    public static int commentId = 0;
+    public static String commentName = "";
+    public static String commentEmail = "";
+    public static String commentBody = "";
+
     protected static RequestSpecification defaultRequestSpecification(){
         return restAssured()
                 .header("Content-type", "application/json")

@@ -31,6 +31,7 @@ public class BaseService {
     public static String commentBody = "";
 
     protected static RequestSpecification defaultRequestSpecification(){
+
         return restAssured()
                 .header("Content-type", "application/json")
                 .header("Authorization", "Bearer 0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c"); //TODO works
@@ -41,7 +42,6 @@ public class BaseService {
 
     protected static RequestSpecification restAssured() {
 
-        logger.info("We've just greeted the user!");
         RestAssured.baseURI = BackendProperties.BaseURL();
         RestAssured.useRelaxedHTTPSValidation();
         RestAssured.urlEncodingEnabled = false;

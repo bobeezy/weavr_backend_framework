@@ -6,18 +6,7 @@ public class BackendProperties {
         return "https://gorest.co.in";
     }
 
-    public static int UnauthorizedStatusCode() {
-        return 401;
-    }
-
-    public static int SuccessCode() {
-        return 200;
-    }
-
-    public static int CreatedSuccessCode() {
-        return 201;
-    }
-
+    //jsonPath
     public static String userIdPath() {
         return "data.id";
     }
@@ -82,48 +71,45 @@ public class BackendProperties {
         return "token";
     }
 
-    public static String PublicUserURI() {
-        return "/public-api/users";
-    }
-
+    //URI
     public static String createUserURI() {
         return "/public/v1/users";
+    }
+
+    public static String createPostURI(int userId) {
+        return "/public/v1/users/" + userId + "/posts";
+    }
+
+    public static String createCommentURI(int userId) {
+        return "/public/v1/posts/" + userId + "/comments";
     }
 
     public static String getAllUsersURI() {
         return "/public/v1/users";
     }
 
-    public static String userByURI(int userId) {
-        return "/public/v1/users/" + userId;
-    }
-
-    public static String userPostURI(int userId) {
-        return "/public/v1/users/" + userId + "/posts";
-    }
-
     public static String getAllPostsURI() {
-        return "/public/v1/users";
-    }
-
-    public static String postByURI(int postId) {
-        return "/public/v1/users/" + postId + "/posts";
-    }
-
-    public static String userCommentURI(int userId) {
-        return "/public/v1/posts/" + userId + "/comments";
+        return "/public/v1/posts";
     }
 
     public static String getAllCommentsURI() {
         return "/public/v1/comments";
     }
 
-    public static String commentByURI(int postId) {
+    public static String getUserByIdURI(int userId) {
+        return "/public/v1/users/" + userId;
+    }
+
+    public static String getPostByIdURI(int postId) {
         return "/public/v1/users/" + postId + "/posts";
     }
 
-    public static String commentByPostIdURI(int postId) {
+    public static String getCommentByPostIdURI(int postId) {
         return "/public/v1/posts/" + postId + "/comments";
+    }
+
+    public static String commentByURI(int postId) {
+        return "/public/v1/users/" + postId + "/posts";
     }
 
     public static String userCommentURI(String userId) {

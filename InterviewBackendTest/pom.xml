@@ -27,6 +27,7 @@
     </repositories>
 
     <dependencies>
+        <!--Rest Assured Dependencies-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -45,6 +46,7 @@
             <version>${rest.assured.version}</version>
             <scope>compile</scope>
         </dependency>
+        <!--JUNIT 5 Dependencies-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

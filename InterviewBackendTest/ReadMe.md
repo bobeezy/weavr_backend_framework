@@ -11,8 +11,6 @@
 
 ---
 
-# Weavr Assessment Automation Framework
-
 ## PRE-REQUISITE ##
 
 IntelliJ IDE, Java(version 11.0.9), Maven, JDK.

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 import properties.BackendProperties;
 import services.GoRestService;
 
+import java.util.Random;
+
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -19,7 +21,9 @@ public class CreateUserTests {
 //    private String _baseURL = "https://gorest.co.in/";
 //    private String _validAccessToken = "tqgiwz-unv8OWaZXfyNqSzEqIp8nYBUi3Pgo"; //0f3ec1965e086978fa318db859f51424bb66409d9ba2669ebb898ac39b1b3e5c
 //    private String _invalidAccessToken = "InvalidToken";
-    final CreateUserModel createUserModel = new CreateUserModel("John" +  + Math.random() + " Wick" + Math.random(), "male", "qatest" + Math.random() + "@gmail.com", "active");
+    Random random = new Random();
+    int randomNum = random.nextInt(100) * 100;
+    final CreateUserModel createUserModel = new CreateUserModel("John Wick" + randomNum, "male", "qatest" + randomNum + "@gmail.com", "active");
 
     @Test
     @Order(1)
@@ -147,6 +151,7 @@ public class CreateUserTests {
     }
 
     @Test
+    @Order(10)
     public void Users_GetAllPosts_Success(){
 
         GoRestService.getAllPosts()
@@ -158,6 +163,7 @@ public class CreateUserTests {
     }
 
     @Test
+    @Order(11)
     public void Users_GetAllComments_Success(){
 
         GoRestService.getAllComments()

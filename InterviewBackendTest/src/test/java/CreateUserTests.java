@@ -170,18 +170,6 @@ public class CreateUserTests {
 
     @Test
     @Order(10)
-    @Description("* Delete User By Id")
-    public void Users_DeleteUserById_Success(){
-
-        GoRestService.deleteUserById(userId)
-                .then()
-                .statusCode(SC_NO_CONTENT);
-
-        logger.info("Successfully validated Users_DeleteUserById_Success \n");
-    }
-
-    @Test
-    @Order(11)
     @Description("* Get All Users")
     public void Users_GetAllUsers_Success(){
 
@@ -194,7 +182,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(12)
+    @Order(11)
     @Description("* Get All Posts")
     public void Users_GetAllPosts_Success(){
 
@@ -207,7 +195,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(13)
+    @Order(12)
     @Description("* Get All Comments")
     public void Users_GetAllComments_Success(){
 
@@ -220,7 +208,7 @@ public class CreateUserTests {
     }
 
     @Test
-    @Order(14)
+    @Order(13)
     @Description("* Get All To Do")
     public void Users_GetAllTodos_Success(){
 
@@ -230,5 +218,43 @@ public class CreateUserTests {
                 .body(BackendProperties.userIdPath(), notNullValue());
 
         logger.info("Successfully validated Users_GetAllTodos_Success \n");
+    }
+
+    @Test
+    @Order(14)
+    @Description("* Get All To Do")
+    public void Users_GetAllTodos(){
+
+        GoRestService.getMethod(BackendProperties.getAllTodosURI())
+                .then()
+                .statusCode(SC_OK)
+                .body(BackendProperties.userIdPath(), notNullValue());
+
+        logger.info("Successfully validated Users_GetAllTodoss \n");
+    }
+
+    @Test
+    @Order(15)
+    @Description("* Get Todos By Id")
+    public void Users_GetTodosById(){
+
+        GoRestService.getMethod(BackendProperties.getTodosByIdURI(userId))
+                .then()
+                .statusCode(SC_OK)
+                .body(BackendProperties.userIdPath(), notNullValue());
+
+        logger.info("Successfully validated Users_GetTodosById_Success \n");
+    }
+
+    @Test
+    @Order(16)
+    @Description("* Delete User By Id")
+    public void Users_DeleteUserById_Success(){
+
+        GoRestService.deleteUserById(userId)
+                .then()
+                .statusCode(SC_NO_CONTENT);
+
+        logger.info("Successfully validated Users_DeleteUserById_Success \n");
     }
 }

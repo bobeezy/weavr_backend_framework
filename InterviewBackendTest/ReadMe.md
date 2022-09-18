@@ -17,7 +17,7 @@ IntelliJ IDE, Java(version 11.0.9), Maven, JDK.
 
 ## TOOLS USED ##
 
-IntelliJ IDE, Java(version 11.0.9), Maven, Allure Report, JUnit(version 5).
+IntelliJ IDE, Java(version 11.0.9), Maven(3.8), Allure Report, JUnit(version 5).
 
 ---
 

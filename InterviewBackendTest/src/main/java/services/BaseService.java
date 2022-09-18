@@ -9,12 +9,12 @@ import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.specification.RequestSpecification;
-import properties.BackendProperties;
 
 import static io.restassured.RestAssured.given;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import properties.BackendProperties;
 
 public class BaseService {
 

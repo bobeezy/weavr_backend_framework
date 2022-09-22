@@ -1,5 +1,5 @@
 # weavr_backend_framework
-The Weavr  Backend Automation Framework is a simple API testing framework that tests a number of endpoints by Go Rest (https://gorest.co.in/).
+The Weavr  Backend Automation Framework is a simple API testing framework that tests a number of endpoints by Go Rest (https://gorest.co.in/), using Maven 3, Java 11, JUnit, rest assured.
 
 ##### Requirements:
 
